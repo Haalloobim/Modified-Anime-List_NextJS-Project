@@ -1,7 +1,6 @@
 import AnimeList from "@/app/component/AnimeList"
-import Link from "next/link";
 
-const Home = async () => {
+const Page = async () => {
 
   let apiURL = `${process.env.NEXT_PUBLIC_API_BASSE_URL}/top/anime?limit=10`;
   const res = await fetch(apiURL);
@@ -24,4 +23,4 @@ const Home = async () => {
   )
 }
 
-export default Home
+export default Page

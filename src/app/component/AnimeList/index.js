@@ -9,15 +9,15 @@ const AnimeList = ({ api, title, hrefLink, hrefTitle }) => {
                     {title}
                 </h1>
             </div>
-            <div className="flex flex-row gap-1  bg-slate-50 my-4">
+            <div className="flex flex-row gap-1  bg-slate-50 md:my-4 mb-4">
                 <div className="h-[2px] flex-1 bg-[#D1D5DC] rounded mx-12"></div>
             </div>
-            <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-6">
+            <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-6 gap-3">
                 {api.data.map((data) => {
                     return (
                         <div key={data.mal_id} className="bg-white rounded-xl shadow-xl p-3">
                             <div className="flex flex-col items-center justify-evenly h-full w-full">
-                                <h1 className="text-center font-medium md:text-lg text-base py-2">
+                                <h1 className="text-center font-medium md:text-lg text-sm py-2">
                                     <Link href={`/${data.mal_id}`} className="hover:underline ease-in-out duration-200">
                                         {data.title}
                                     </Link>
@@ -28,7 +28,7 @@ const AnimeList = ({ api, title, hrefLink, hrefTitle }) => {
                                         alt=".."
                                         width={600}
                                         height={600}
-                                        className="h-[370px] object-cover grayscale-[67%] hover:grayscale-0 transition-all duration-200 ease-in-out hover:scale-[102.5%]"
+                                        className="md:h-[370px] h-[200px] object-cover grayscale-[67%] hover:grayscale-0 transition-all duration-200 ease-in-out hover:scale-[102.5%]"
                                     />
                                 </Link>
                             </div>
@@ -37,11 +37,16 @@ const AnimeList = ({ api, title, hrefLink, hrefTitle }) => {
                 })}
 
             </div>
-            <div className="flex justify-end">
-                <Link href={`/${hrefLink}`} className="text-indigo-500 underline hover:text-gray-800 transition-all duration-200 ease-in-out">
-                    {hrefTitle}
-                </Link>
-            </div>
+            {
+                hrefLink && hrefTitle ?
+                    <div className="flex justify-end py-4 md:text-base text-sm">
+                        <Link href={`/${hrefLink}`} className="text-indigo-500 underline hover:text-gray-800 transition-all duration-200 ease-in-out">
+                            {hrefTitle}
+                        </Link>
+                    </div> 
+                    : null
+            }
+
         </div>
 
 
