@@ -15,7 +15,7 @@ const SearchInput = () => {
             router.push(`/search/${search}`)
         }
         else{
-            alert("Input is empty")
+            alert("Please input something")
         }
     }
 

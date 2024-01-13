@@ -2,8 +2,9 @@ import AnimeList from "@/app/component/AnimeList"
 
 const Page = async ({ params }) => {
 
-  const { search } = params;
+  let { search } = params;
   let apiURL = `${process.env.NEXT_PUBLIC_API_BASSE_URL}/anime?q=${search}`;
+  search = decodeURIComponent(search);
   const res = await fetch(apiURL);
   const searchAnime = await res.json();
   
@@ -14,7 +15,7 @@ const Page = async ({ params }) => {
         <div className="flex flex-col gap-y-3 px-2 mt-4">
           <AnimeList
             api={searchAnime}
-            title={`Searching for ${search}...`}/>
+            title={`Searching for ${search} ...`}/>
         </div>
       </section>
     </>
