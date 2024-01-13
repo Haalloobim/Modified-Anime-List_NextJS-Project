@@ -6,8 +6,10 @@ const Navbar = () => {
                     <p className='lg:text-3xl md:text-2xl text-xl text-white font-medium font-inter'>
                         Welcome to<span className='text-[#FFD700]'> Bitici Anime List</span>
                     </p>
-                    <div className='bg-gray-700 text-white py-3 px-5 rounded-lg font-light text-base transition-all ease-in-out duration-100 hover:bg-gray-600 hover:-translate-y-[1px]' >
-                        <button >Logout</button>
+                    <div >
+                        <input placeholder="Cari Anime.." type="text"  
+                        className="border text-sm rounded-lg text-gray-300 block w-full p-2.5 
+                        bg-gray-700 border-gray-600 placeholder-gray-400  focus:ring-blue-500 focus:border-blue-500" />
                     </div>
                 </div>
             </nav>
