@@ -17,7 +17,8 @@ module.exports = {
         warning: '#F6E069',
         success: '#33D685', 
         primary: '#61ADDB',
-        hovered: '#2F83D4'
+        hovered: '#2F83D4',
+        goldYel: '#FFD700'
     },
     },
   },
