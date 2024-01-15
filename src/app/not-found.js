@@ -3,7 +3,7 @@ import React from 'react'
 
 const notFound = () => {
     return (
-        <div className='min-h-[550px] w-full flex justify-center items-center bg-slate-100 mx-auto'>
+        <div className='min-h-[555px] w-full flex justify-center items-center bg-slate-100 mx-auto'>
             <div className='p-7 rounded-xl bg-slate-50 shadow-2xl border border-black flex flex-col items-center gap-2'>
                 <div className='text-2xl font-medium'>
                     <span className='text-danger font-bold'>404</span> | Page Not Found!
