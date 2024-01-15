@@ -23,7 +23,7 @@ const SearchInput = () => {
         <div className="flex flex-row items-center gap-x-2 ">
             <input placeholder="Cari Anime.." type="text"
                 ref={refInput}
-                onKeyUp={(event) => {
+                onKeyDown={(event) => {
                     if (event.key === "Enter") {
                         SearchInputHandling(event);
                     }
