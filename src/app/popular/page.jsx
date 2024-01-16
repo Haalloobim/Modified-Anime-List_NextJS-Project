@@ -1,9 +1,9 @@
-const Page = () => {
-    return (
-        <div>
-            <h1>Page List:</h1>
-        </div>
-    )
+import React from 'react'
+
+const page = () => {
+  return (
+    <div>page</div>
+  )
 }
 
-export default Page
+export default page
