@@ -11,11 +11,14 @@ const SearchInput = () => {
     const SearchInputHandling = (event) => {
         event.preventDefault()
         const search = refInput.current.value
-        if (search.length > 0) {
-            router.push(`/search/${search}`)
-        }
-        else{
+        if (!search.length) {
             alert("Please input something")
+        }
+        else if ( search.length > 25) {
+            alert("Please input something less than 25 characters")
+        }
+        else {
+            router.push(`/search/${search}`)
         }
     }
 
