@@ -1,9 +1,59 @@
-import React from 'react'
+import React from "react";
+import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 
-const Pagination = () => {
-    return (
-        <div>To be Pagination</div>
-    )
-}
+const Pagination = ({ currentPage, lastPage, setPage }) => {
 
-export default Pagination
+  const scrollTop = () => {
+    scrollTo({
+      behavior: "smooth",
+      top: 0,
+    })
+  }
+
+  const handlePage = (dir) => {
+    if(dir === "prev"){
+      if(currentPage > 1){
+        setPage(currentPage - 1)
+      }
+      else{
+        alert("You are on the first page!")
+        return
+      } 
+    }
+    if(dir === "next"){
+      if(currentPage < lastPage){
+        setPage(currentPage + 1)
+      }
+      else{
+        alert("You are on the last page!")
+        return
+      } 
+    }
+    scrollTop()
+  }
+
+  return (
+    <>
+      <div className="flex flex-row justify-center">
+        <div className="flex items-center justify-center bg-white hover:bg-slate-50 rounded-l-xl border-y font-medium border-l border-gray-700 hover:text-[#ff9800] hover:text-[17px] transition-all ">
+            <button className="p-2 pl-3 flex items-center justify-center gap-x-1" onClick={() => handlePage("prev")}>
+              <ArrowLeft /> 
+              Prev</button>
+        </div>
+        <div className="flex items-center justify-center bg-white p-2 border border-gray-700">
+            <h1>
+                <span className="font-semibold text-[#ff9800]">{currentPage}</span> of {lastPage}
+            </h1>
+        </div>
+        <div className="flex items-center justify-center bg-white hover:bg-slate-50 rounded-r-xl border-y font-medium border-r border-gray-700 hover:text-[#ff9800] hover:text-[17px] transition-all ">
+            <button className="p-2 pr-3 flex items-center justify-center gap-x-1" onClick={() => handlePage("next")}>
+              Next
+              <ArrowRight />
+            </button>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Pagination;
