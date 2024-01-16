@@ -1,19 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const AnimeList = ({ api, title, hrefLink, hrefTitle }) => {
+const AnimeList = ({ api, hrefLink, hrefTitle }) => {
     return (
         <div>
-            <div>
-                <h1 className="font-roboto font-sans md:text-3xl text-xl font-extrabold text-[#111111] tracking-normal text-center pb-2">
-                    {title}
-                </h1>
-            </div>
-            <div className="flex flex-row gap-1  bg-slate-50 md:my-4 mb-4">
-                <div className="h-[2px] flex-1 bg-[#D1D5DC] rounded mx-12"></div>
-            </div>
             <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-6 gap-3">
-                {api.data.map((data) => {
+                {api.data?.map((data) => {
                     return (
                         <div key={data.mal_id} className="bg-white rounded-xl shadow-xl p-3">
                             <div className="flex flex-col items-center justify-evenly h-full w-full">
