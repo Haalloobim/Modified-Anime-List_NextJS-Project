@@ -7,7 +7,7 @@ const AnimeList = ({ api, hrefLink, hrefTitle }) => {
             <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-6 gap-3">
                 {api.data?.map((data) => {
                     return (
-                        <div key={data.mal_id} className="border border-gray-300 bg-white rounded-xl shadow-xl p-3 hover:-translate-y-1 transition-all duration-200  grayscale-[67%] hover:grayscale-0">
+                        <Link href={`/anime/${data.mal_id}`} key={data.mal_id} className="border border-gray-300 bg-white rounded-xl shadow-xl p-3 hover:-translate-y-1 transition-all duration-200  grayscale-[67%] hover:grayscale-0">
                             <div className="flex flex-col items-center justify-evenly h-full w-full">
                                 <h1 className="text-center font-medium md:text-lg text-sm py-2">
                                     <Link href={`/anime/${data.mal_id}`} className="hover:underline ease-in-out duration-200">
@@ -24,7 +24,7 @@ const AnimeList = ({ api, hrefLink, hrefTitle }) => {
                                     />
                                 </Link>
                             </div>
-                        </div>
+                        </Link>
                     )
                 })}
 
