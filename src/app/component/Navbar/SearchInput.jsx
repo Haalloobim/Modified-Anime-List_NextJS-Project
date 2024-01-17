@@ -21,7 +21,7 @@ const SearchInput = () => {
             router.push(`/search/${search}`);
             setTimeout(() => {
                 refInput.current.value = "";
-            }, 1000); 
+            }, 1100); 
         }
         
     }
