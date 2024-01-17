@@ -1,12 +1,10 @@
 import AnimeList from "@/app/component/AnimeList"
 import Header from "./component/Utilities/Header";
+import getAnimeResponse from "@/services/api.services";
 
 const Page = async () => {
 
-  let apiURL = `${process.env.NEXT_PUBLIC_API_BASSE_URL}/top/anime?limit=10`;
-  const res = await fetch(apiURL);
-  const topAnimes = await res.json();
-  // console.log(datas);
+  const topAnimes = await getAnimeResponse("/top/anime", "limit=10")
 
   return (
     <>
