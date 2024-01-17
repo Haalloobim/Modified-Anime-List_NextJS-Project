@@ -14,8 +14,8 @@ const SearchInput = () => {
         if (!search.length) {
             alert("Please input something")
         }
-        else if ( search.length > 25) {
-            alert("Please input something less than 25 characters")
+        else if ( search.length > 50) {
+            alert("Please input something less than 50 characters")
         }
         else {
             router.push(`/search/${search}`)

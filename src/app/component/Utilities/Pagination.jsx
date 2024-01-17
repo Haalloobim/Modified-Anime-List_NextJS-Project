@@ -13,6 +13,7 @@ const Pagination = ({ currentPage, lastPage, setPage }) => {
   const handlePage = (dir) => {
     if(dir === "prev"){
       if(currentPage > 1){
+        scrollTop()
         setPage(currentPage - 1)
       }
       else{
@@ -22,6 +23,7 @@ const Pagination = ({ currentPage, lastPage, setPage }) => {
     }
     if(dir === "next"){
       if(currentPage < lastPage){
+        scrollTop()
         setPage(currentPage + 1)
       }
       else{
@@ -29,14 +31,13 @@ const Pagination = ({ currentPage, lastPage, setPage }) => {
         return
       } 
     }
-    scrollTop()
   }
 
   return (
     <>
       <div className="flex flex-row justify-center">
-        <div className="flex items-center justify-center bg-white hover:bg-slate-50 rounded-l-xl border-y font-medium border-l border-gray-700 hover:text-[#ff9800] hover:text-[17px] transition-all ">
-            <button className="p-2 pl-3 flex items-center justify-center gap-x-1" onClick={() => handlePage("prev")}>
+        <div className={`flex items-center justify-center bg-white  rounded-l-xl border-y font-medium border-l border-gray-700 ${currentPage === 1 ? "text-gray-500" : "hover:text-[#ff9800] hover:text-[17px] hover:bg-slate-50"} transition-all `}>
+            <button className="p-2 pl-3 flex items-center justify-center gap-x-1" onClick={() => handlePage("prev")} disabled={currentPage === 1}>
               <ArrowLeft /> 
               Prev</button>
         </div>

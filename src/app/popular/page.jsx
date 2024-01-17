@@ -5,15 +5,14 @@ import Pagination from "../component/Utilities/Pagination";
 import AnimeList from "../component/AnimeList";
 import Header from "../component/Utilities/Header";
 import Navigation from "../component/Utilities/Navigation";
+import getAnimeResponse from "@/services/api.services";
 
 const page = () => {
   const [topAnimes, setTopAnimes] = useState([]);
   const [page, setPage] = useState(1);
 
   const fetchData = async () => {
-    let apiURL = `${process.env.NEXT_PUBLIC_API_BASSE_URL}/top/anime?page=${page}`;
-    const res = await fetch(apiURL);
-    const datas = await res.json();
+    const datas = await getAnimeResponse("/top/anime", `page=${page}`);
     setTopAnimes(datas);
   };
 

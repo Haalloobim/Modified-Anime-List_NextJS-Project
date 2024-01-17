@@ -1,21 +1,21 @@
 import AnimeList from "@/app/component/AnimeList"   
+import Header from "@/app/component/Utilities/Header";
+import getAnimeResponse from "@/services/api.services";
 
 const Page = async ({ params }) => {
 
   let { search } = params;
-  let apiURL = `${process.env.NEXT_PUBLIC_API_BASSE_URL}/anime?q=${search}`;
-  search = decodeURIComponent(search);
-  const res = await fetch(apiURL);
-  const searchAnime = await res.json();
-  
+  const searchAnime = await getAnimeResponse("/anime", `q=${search}`)
+  let decodedSearch = decodeURIComponent(search);
 
   return (
     <>
       <section className="p-6 bg-slate-50 pb-16" >
         <div className="flex flex-col gap-y-3 px-2 mt-4">
+          <Header title={`Searching for ${decodedSearch} ...`} />
           <AnimeList
             api={searchAnime}
-            title={`Searching for ${search} ...`}/>
+            title={`Searching for ${decodedSearch} ...`}/>
         </div>
       </section>
     </>

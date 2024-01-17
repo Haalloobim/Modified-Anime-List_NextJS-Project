@@ -36,7 +36,7 @@ const Navigation = ({ page, lastPage, setPage }) => {
     <div className="flex flex-col gap-x-3  ">
       <div className="flex flex-row gap-2 justify-between items-center md:mx-12 mx-auto md:mb-3 mb-6">
         <div >
-          <button onClick={() => handlePage("prev")} className="hover:-translate-y-[2px] transition-all flex items-center justify-center gap-x-1 py-4 px-4 h-8  text-base font-normal text-gray-800 bg-white border border-gray-300 shadow-lg rounded-lg hover:bg-gray-100 hover:text-gray-700">
+          <button disabled={page <= 1} onClick={() => handlePage("prev")} className={`flex items-center justify-center gap-x-1 py-4 px-4 h-8  text-base font-normal text-gray-800 bg-white border border-gray-300 shadow-lg rounded-lg ${ page === 1 ? "text-gray-400" : "hover:bg-gray-100 hover:-translate-y-[2px] transition-all hover:text-gray-700" }`}>
             <ArrowLeft />
             Prev
           </button>
@@ -45,7 +45,7 @@ const Navigation = ({ page, lastPage, setPage }) => {
                 <p>Page: <span className="text-[#ff9800] font-medium">{page}</span></p>
             </div>
         <div>
-          <button onClick={() => handlePage("next")} className="hover:-translate-y-[2px] transition-all flex items-center justify-center gap-x-1 py-4 px-4 h-8 me-3 text-base font-normal text-gray-800 bg-white border border-gray-300 shadow-lg rounded-lg hover:bg-gray-100 hover:text-gray-700">
+          <button disabled={page >= lastPage} onClick={() => handlePage("next")} className={` flex items-center justify-center gap-x-1 py-4 px-4 h-8 me-3 text-base font-normal text-gray-800 bg-white border border-gray-300 shadow-lg rounded-lg ${ page === lastPage ? "text-gray-400" : "hover:bg-gray-100 hover:-translate-y-[2px] transition-all hover:text-gray-700"}`}>
             Next
             <ArrowRight />
           </button>
