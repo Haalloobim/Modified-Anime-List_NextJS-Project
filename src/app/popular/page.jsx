@@ -21,7 +21,7 @@ const page = () => {
   }, [page]);
 
   return (
-    <div className="p-6 bg-slate-100 pb-16">
+    <div className="p-6 bg-slate-100 pb-16"  suppressHydrationWarning={true}>
       <div className="flex flex-col gap-y-4 px-2 mt-4">
         <Header title={"Popular Anime List"} />
         <Navigation

@@ -10,7 +10,7 @@ const SearchInput = () => {
 
     const SearchInputHandling = (event) => {
         event.preventDefault()
-        const search = refInput.current.value
+        let search = refInput.current.value
         if (!search.length) {
             alert("Please input something")
         }
@@ -18,12 +18,16 @@ const SearchInput = () => {
             alert("Please input something less than 50 characters")
         }
         else {
-            router.push(`/search/${search}`)
+            router.push(`/search/${search}`);
+            setTimeout(() => {
+                refInput.current.value = "";
+            }, 1000); 
         }
+        
     }
 
     return (
-        <div className="flex flex-row items-center gap-x-2 ">
+        <div className="flex flex-row items-center gap-x-2 " suppressHydrationWarning={true}>
             <input placeholder="Cari Anime.." type="text"
                 ref={refInput}
                 onKeyDown={(event) => {

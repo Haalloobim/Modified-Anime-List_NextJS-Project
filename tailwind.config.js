@@ -18,7 +18,9 @@ module.exports = {
         success: '#33D685', 
         primary: '#61ADDB',
         hovered: '#2F83D4',
-        goldYel: '#FFD700'
+        goldYel: '#FFD700',
+        gold: '#ff9800',
+        kuro: '#212121',
     },
     },
   },

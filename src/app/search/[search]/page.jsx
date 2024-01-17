@@ -10,7 +10,7 @@ const Page = async ({ params }) => {
 
   return (
     <>
-      <section className="p-6 bg-slate-50 pb-16" >
+      <section className="p-6 bg-slate-50 pb-16"  suppressHydrationWarning={true}>
         <div className="flex flex-col gap-y-3 px-2 mt-4">
           <Header title={`Searching for ${decodedSearch} ...`} />
           <AnimeList

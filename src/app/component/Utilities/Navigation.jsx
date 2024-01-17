@@ -42,7 +42,7 @@ const Navigation = ({ page, lastPage, setPage }) => {
           </button>
         </div>
             <div className="bg-white border-gray-300 border px-3 py-2 rounded-md shadow-lg" >
-                <p>Page: <span className="text-[#ff9800] font-medium">{page}</span></p>
+                <p>Page: <span className="text-gold font-medium">{page}</span></p>
             </div>
         <div>
           <button disabled={page >= lastPage} onClick={() => handlePage("next")} className={` flex items-center justify-center gap-x-1 py-4 px-4 h-8 me-3 text-base font-normal text-gray-800 bg-white border border-gray-300 shadow-lg rounded-lg ${ page === lastPage ? "text-gray-400" : "hover:bg-gray-100 hover:-translate-y-[2px] transition-all hover:text-gray-700"}`}>
