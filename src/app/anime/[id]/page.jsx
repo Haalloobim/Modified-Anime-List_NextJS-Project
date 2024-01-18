@@ -1,5 +1,5 @@
 import Header from "@/app/component/Utilities/Header";
-import getAnimeResponse from "@/services/api.services";
+import { getAnimeResponse } from "@/services/api.services";
 import Image from "next/image";
 import React from "react";
 import { Roboto } from "next/font/google";
@@ -15,7 +15,6 @@ const roboto = Roboto({
 const Page = async ({ params }) => {
   const { id } = params;
   const animeData = await getAnimeResponse(`/anime/${id}`);
-  console.log(animeData.data.trailer.youtube_id);
   return (
     <>
       <section

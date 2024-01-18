@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Pagination from "../component/Utilities/Pagination";
-import AnimeList from "../component/AnimeList";
-import Header from "../component/Utilities/Header";
-import Navigation from "../component/Utilities/Navigation";
-import getAnimeResponse from "@/services/api.services";
+import Pagination from "@/app/component/Utilities/Pagination";
+import AnimeList from "@/app/component/AnimeList";
+import Header from "@/app/component/Utilities/Header";
+import Navigation from "@/app/component/Utilities/Navigation";
+import { getAnimeResponse } from "@/services/api.services";
 
 const page = () => {
   const [topAnimes, setTopAnimes] = useState([]);
