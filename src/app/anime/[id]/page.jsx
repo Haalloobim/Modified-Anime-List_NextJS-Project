@@ -91,7 +91,7 @@ const Page = async ({ params }) => {
                 <div className="border border-gray-400 bg-white rounded-xl shadow-md p-3">
                   <h1>
                     Aired:{" "}
-                    <span className="font-semibold text-kuro">
+                    <span className="font-semibold text-kuro capitalize">
                       {animeData.data.season} - {animeData.data.year}
                     </span>
                   </h1>

@@ -11,7 +11,7 @@ const SearchInput = () => {
     const SearchInputHandling = (event) => {
         event.preventDefault()
         let search = refInput.current.value
-        if (!search.length) {
+        if (!search.trim().length) {
             alert("Please input something")
         }
         else if ( search.length > 50) {
