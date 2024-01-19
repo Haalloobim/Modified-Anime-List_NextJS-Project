@@ -1,5 +1,6 @@
 import Link from "next/link"
 import SearchInput from "@/app/component/Navbar/SearchInput"
+import ButtonSign from "@/app/component/Navbar/ButtonSign"
 
 const Navbar = () => {
     return (
@@ -9,7 +10,11 @@ const Navbar = () => {
                     <p className='lg:text-3xl md:text-2xl text-xl text-white font-medium font-inter'>
                         Welcome to<Link href="/" className='text-goldYel'> Bitici Anime List</Link>
                     </p>
-                    <SearchInput/>
+                    <div className="flex flex-row gap-8">
+                        <SearchInput/>
+                        <ButtonSign/>
+                    </div>
+                    
                 </div>
             </nav>
         </div>

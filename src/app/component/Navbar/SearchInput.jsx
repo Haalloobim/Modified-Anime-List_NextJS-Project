@@ -38,10 +38,8 @@ const SearchInput = () => {
                 className="border text-sm rounded-lg text-gray-300 block w-full md:p-2.5 p-2 
                         bg-gray-700 border-gray-600 placeholder-gray-400  focus:ring-blue-500 focus:border-blue-500"/>
             <button onClick={SearchInputHandling}>
-                <MagnifyingGlass size={30} color="rgb(209 213 219)" className="hover:text-white hover:scale-105 duration-150 transition-all ease-in-out " />
+                <MagnifyingGlass size={26} color="rgb(209 213 219)" className="hover:text-white hover:scale-105 duration-150 transition-all ease-in-out " />
             </button>
-
-
         </div>
     )
 }

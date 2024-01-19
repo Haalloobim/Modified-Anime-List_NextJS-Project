@@ -2,6 +2,7 @@ import AnimeList from "@/app/component/AnimeList"
 import Header from "./component/Utilities/Header";
 import {getAnimeResponse, getNestedAnimeResponse, randomizeAnimeData } from "@/services/api.services";
 
+
 const Page = async () => {
 
   const topAnimes = await getAnimeResponse("/top/anime", "limit=10");

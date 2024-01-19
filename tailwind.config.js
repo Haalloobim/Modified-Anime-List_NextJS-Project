@@ -23,6 +23,5 @@ module.exports = {
         kuro: '#212121',
     },
     },
-  },
-  plugins: [],
+  }, 
 }
