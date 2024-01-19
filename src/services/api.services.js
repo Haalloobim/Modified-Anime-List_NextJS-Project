@@ -1,3 +1,5 @@
+import { random, floor } from 'Math'
+
 export const getAnimeResponse = async (res, query) => {
     let apiURL = `${process.env.NEXT_PUBLIC_API_BASSE_URL}${res}?${query}`;
     const response = await fetch(apiURL);
@@ -16,7 +18,7 @@ export const randomizeAnimeData = (data, length) => {
     let count = 0;
     while (1) {
         if (count === length) break;
-        let index = Math.floor(Math.random() * data.length); 
+        let index = floor(random() * data.length); 
         if (!(selectedIndex.has(index))){
             selectedIndex.add(index);
             count++;
