@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Check, Plus } from "@phosphor-icons/react";
 
-const ButtonCollection = ({ mal_id, user_email, user_name, colData }) => {
+const ButtonCollection = ({ mal_id, user_email, user_name, colData, anime_image, anime_title }) => {
   let urlApi = "/api/v1/collection";
 
   const [isAdded, setIsAdded] = useState(false);
@@ -16,7 +16,13 @@ const ButtonCollection = ({ mal_id, user_email, user_name, colData }) => {
   const CollectionButtonHandler = async (event) => {
     event.preventDefault();
 
-    const storedData = { mal_id, user_email, user_name };
+    const storedData = { 
+        mal_id,
+        user_email, 
+        user_name, 
+        anime_image, 
+        anime_title 
+    };
 
     const res = await fetch(urlApi, {
       method: "POST",

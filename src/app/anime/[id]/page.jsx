@@ -21,12 +21,12 @@ const Page = async ({ params }) => {
   const user = await authUserSession();
   const collection = await prisma.collection.findFirst({
     where: {
-      user_email: user?.email, 
-      mal_id: id
-    }
-  })
+      user_email: user?.email,
+      mal_id: id,
+    },
+  });
 
-  console.log({collection})
+  console.log({ collection });
 
   return (
     <>
@@ -45,14 +45,26 @@ const Page = async ({ params }) => {
             <div className="p-3 w-full bg-slate-50 rounded-xl shadow-xl border border-gray-300 flex flex-col gap-y-3 justify-center">
               <div className=" flex flex-row justify-between">
                 <div className="pl-3">
-                  <h1 className={`${roboto.className} text-2xl font-medium underline`}>
+                  <h1
+                    className={`${roboto.className} text-2xl font-medium underline`}
+                  >
                     Statistics
                   </h1>
                 </div>
-                { !user ? <></> :
-                  <div className="pr-2">
-                  <ButtonCollection mal_id={id} user_email={user?.email} user_name={user?.name} colData={collection}/>
-                </div>}
+                {
+                  !user ? null : (
+                    <div className="pr-2">
+                      <ButtonCollection
+                        mal_id={id}
+                        anime_image={animeData.data.images.jpg.image_url}
+                        anime_title={animeData.data.title}
+                        user_email={user?.email}
+                        user_name={user?.name}
+                        colData={collection}
+                      />
+                    </div>
+                  )
+                }
               </div>
               <div className="flex flex-col gap-y-3">
                 <div className="border border-gray-400 bg-white rounded-xl shadow-md p-3">

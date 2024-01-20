@@ -15,6 +15,8 @@ model Collection {
   mal_id      String
   user_email  String
   user_name   String
+  anime_title String?
+  anime_image String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 

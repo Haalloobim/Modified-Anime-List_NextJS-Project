@@ -5,11 +5,13 @@ const GET = async(request) => {
 }
 
 const POST = async(request) => {
-    const { mal_id, user_email, user_name } = await request.json()
+    const { mal_id, user_email, user_name, anime_image, anime_title } = await request.json()
     const data = {
         mal_id,
         user_email,
-        user_name
+        user_name,
+        anime_image, 
+        anime_title 
     }
     const createCollection = await prisma.collection.create({ data })
 
