@@ -89,7 +89,7 @@ const Page = async () => {
           <div className="flex flex-row  md:my-2">
             <div className="h-[2px] flex-1 bg-[#c4c6cb] rounded mx-10"></div>
           </div>
-          <Collection />
+          <Collection email={user?.email}/>
         </div>
       )}
     </>
