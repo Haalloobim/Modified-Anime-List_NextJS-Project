@@ -14,7 +14,7 @@ const Collection = async ({ email }) => {
 
   return (
     <>
-      <div className="container flex flex-col gap-1 px-10 py-3 mb-12 ">
+      <div className="container flex flex-col gap-1 px-10 py-3 mb-4 ">
         <div className="flex justify-between items-center">
           <h1 className="font-roboto font-sans md:text-2xl text-xl font-bold text-[#111111] tracking-normal text-center pb-2 px-3">
             My Collection
@@ -27,8 +27,8 @@ const Collection = async ({ email }) => {
           </Link>
         </div>
         <div className="
-          grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-6 justify-center
-          bg-white rounded-xl shadow-xl border border-gray-400 py-4 px-5
+          grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-6 justify-center
+          bg-white rounded-xl shadow-xl border border-gray-400 md:py-4 py-8 md:px-5 px-11 
           ">
           {collection.map(async (colData, idx) => {
             return (

@@ -3,6 +3,7 @@ import { authUserSession } from "@/services/auth.services";
 import Link from "next/link";
 import Image from "next/image";
 import Collection from "@/app/users/dashboard/Collection";
+import Comment from "@/app/users/dashboard/Comment";
 
 const Page = async () => {
   const user = await authUserSession();
@@ -84,12 +85,16 @@ const Page = async () => {
       {!user ? (
         <NotLogin />
       ) : (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen mb-12">
           <Dashboard />
           <div className="flex flex-row  md:my-2">
             <div className="h-[2px] flex-1 bg-[#c4c6cb] rounded mx-10"></div>
           </div>
           <Collection email={user?.email}/>
+          <div className="flex flex-row  md:my-2">
+            <div className="h-[2px] flex-1 bg-[#c4c6cb] rounded mx-10"></div>
+          </div>
+          <Comment />
         </div>
       )}
     </>
