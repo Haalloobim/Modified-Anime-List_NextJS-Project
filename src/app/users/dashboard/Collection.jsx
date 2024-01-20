@@ -27,7 +27,7 @@ const Collection = () => {
                 className="inset-0 bg-cover bg-center z-0 rounded-lg"
                 />
                 <div className="absolute inset-0 rounded-lg bottom-0 bg-green-600 z-10 min-h-full flex justify-center items-center opacity-0 hover:opacity-100 transition-all duration-500 ease-in-out">
-                    <h1 className="text-black font-bold text-2xl z-30   ">hello</h1>
+                    <h1 className="text-black font-bold text-2xl z-30 ">hello</h1>
                 </div>
             </div>
             <div className=" min-h-fit border border-gray-500 bg-white rounded-lg ">
