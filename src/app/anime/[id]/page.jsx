@@ -6,6 +6,7 @@ import { Roboto } from "next/font/google";
 import VidPlayer from "@/app/component/Utilities/VidPlayer";
 import ButtonCollection from "@/app/component/Utilities/ButtonCollection";
 import { authUserSession } from "@/services/auth.services";
+import prisma from "@/services/prisma";
 
 const roboto = Roboto({
   weight: ["400", "500", "700"],
@@ -18,6 +19,14 @@ const Page = async ({ params }) => {
   const { id } = params;
   const animeData = await getAnimeResponse(`/anime/${id}`);
   const user = await authUserSession();
+  const collection = await prisma.collection.findFirst({
+    where: {
+      user_email: user?.email, 
+      mal_id: id
+    }
+  })
+
+  console.log({collection})
 
   return (
     <>
@@ -40,9 +49,10 @@ const Page = async ({ params }) => {
                     Statistics
                   </h1>
                 </div>
-                <div className="pr-2">
-                  <ButtonCollection animeAPI={animeData} userData={user} />
-                </div>
+                { !user ? <></> :
+                  <div className="pr-2">
+                  <ButtonCollection mal_id={id} user_email={user?.email} user_name={user?.name} colData={collection}/>
+                </div>}
               </div>
               <div className="flex flex-col gap-y-3">
                 <div className="border border-gray-400 bg-white rounded-xl shadow-md p-3">
