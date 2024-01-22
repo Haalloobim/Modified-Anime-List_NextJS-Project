@@ -4,9 +4,10 @@ import Image from "next/image";
 import React from "react";
 import { Roboto } from "next/font/google";
 import VidPlayer from "@/app/component/Utilities/VidPlayer";
-import ButtonCollection from "@/app/component/Utilities/ButtonCollection";
+import ButtonCollection from "@/app/component/AnimeList/ButtonCollection";
 import { authUserSession } from "@/services/auth.services";
 import prisma from "@/services/prisma";
+import CommentInput from "@/app/component/AnimeList/CommentInput";
 
 const roboto = Roboto({
   weight: ["400", "500", "700"],
@@ -51,20 +52,18 @@ const Page = async ({ params }) => {
                     Statistics
                   </h1>
                 </div>
-                {
-                  !user ? null : (
-                    <div className="pr-2">
-                      <ButtonCollection
-                        mal_id={id}
-                        anime_image={animeData.data.images.jpg.image_url}
-                        anime_title={animeData.data.title}
-                        user_email={user?.email}
-                        user_name={user?.name}
-                        colData={collection}
-                      />
-                    </div>
-                  )
-                }
+                {!user ? null : (
+                  <div className="pr-2">
+                    <ButtonCollection
+                      mal_id={id}
+                      anime_image={animeData.data.images.jpg.image_url}
+                      anime_title={animeData.data.title}
+                      user_email={user?.email}
+                      user_name={user?.name}
+                      colData={collection}
+                    />
+                  </div>
+                )}
               </div>
               <div className="flex flex-col gap-y-3">
                 <div className="border border-gray-400 bg-white rounded-xl shadow-md p-3">
@@ -139,7 +138,7 @@ const Page = async ({ params }) => {
               </div>
             </div>
           </div>
-          <div className="flex w-ful justify-center">
+          <div className="flex justify-center">
             <div className="lg:w-3/5 md:w-4/5 w-full flex flex-col gap-y-1 border border-gray-300 bg-slate-50 rounded-xl shadow-lg  p-3 mt-2">
               <div>
                 <h1
@@ -150,6 +149,9 @@ const Page = async ({ params }) => {
               </div>
               <VidPlayer ytID={animeData.data.trailer.youtube_id} />
             </div>
+          </div>
+          <div>
+            <CommentInput />
           </div>
         </div>
       </section>
