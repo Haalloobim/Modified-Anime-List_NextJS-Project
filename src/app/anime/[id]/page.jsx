@@ -7,7 +7,7 @@ import VidPlayer from "@/app/component/Utilities/VidPlayer";
 import ButtonCollection from "@/app/component/AnimeList/ButtonCollection";
 import { authUserSession } from "@/services/auth.services";
 import prisma from "@/services/prisma";
-import CommentInput from "@/app/component/AnimeList/CommentInput";
+import CommentContainer from "@/app/component/AnimeList/CommentContainer";
 
 const roboto = Roboto({
   weight: ["400", "500", "700"],
@@ -27,7 +27,7 @@ const Page = async ({ params }) => {
     },
   });
 
-  console.log({ collection });
+  // console.log({ collection });
 
   return (
     <>
@@ -151,7 +151,12 @@ const Page = async ({ params }) => {
             </div>
           </div>
           <div>
-            <CommentInput />
+            <CommentContainer
+              anime_title={animeData.data.title}
+              mal_id={id}
+              user_email={user?.email}
+              user_name={user?.name}
+            />
           </div>
         </div>
       </section>
